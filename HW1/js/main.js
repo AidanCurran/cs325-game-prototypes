@@ -30,7 +30,7 @@ window.onload = function()
     
     function create() 
     {
-    	game.physics.startSystem(Phaser.Physics.ARCADE);
+    	//game.physics.startSystem(Phaser.Physics.ARCADE);
     
     	person = game.add.sprite(0, game.world.height - 50, 'person');
     	ground = game.add.sprite(0, game.world.height - 64, 'ground');
