@@ -24,14 +24,16 @@ window.onload = function()
         game.load.image( 'person', 'assets/person.png' );
     }
     
-    var bouncy, person;
+    var bouncy;
+    var person;
+    var ground;
     
     function create() 
     {
     	game.physics.startSystem(Phaser.Physics.ARCADE);
     
     	person = game.add.sprite( game.world.centerX, game.world.height - 50, 'person');
-    	var ground = game.add.sprite(0, game.world.height - 64, 'ground');
+    	ground = game.add.sprite(0, game.world.height - 64, 'ground');
     	ground.body.immovable = true;
         // Create a sprite at the center of the screen using the 'logo' image.
         bouncy = game.add.sprite( game.world.centerX, game.world.centerY, 'asteroid' );
