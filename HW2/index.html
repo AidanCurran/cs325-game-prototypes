@@ -1,9 +1,17 @@
+<!DOCTYPE HTML>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Hello! Amaze!</title>
-    <script src="js/phaser.js"></script>
-    <script src="js/main.js"></script>
+	<meta charset="UTF-8" />
+	<title>Phaser Basic Project Template</title>
+	<script src="js/phaser.min.js"></script>
+	<!-- Boot.js must come first since it creates the BasicGame object
+	that stores all the states. -->
+	<script src="js/Boot.js"></script>
+	<script src="js/Preloader.js"></script>
+	<script src="js/MainMenu.js"></script>
+	<script src="js/Game.js"></script>
+	<!-- main.js must come last since it references the other ones. -->
+	<script src="js/main.js"></script>
 
 <style>
 body
@@ -21,66 +29,73 @@ body
 <body>
 <div id="game"></div>
 <div id="readme">
-<h2>Asteroid dodger</h2>
+<h2>Your game title</h2>
 <ul>
 
 <li><strong>High Concept:</strong>
-My game is a simple dodging game. Dodge all the asteroids to win.
+A one-sentence summary of your game.
 </li>
 
 <li><strong>Theme:</strong>
-I used the asteroid theme.
+State which of the Storymatic themes you used.
 </li>
 
 <li><strong>Mandated Variety:</strong>
-The game is very random. The asteroids all spawn in a random location so it can make the game difficult.
+State which input, randomness, genre, and play style you used in this prototype.
 </li>
 
 <li><strong>Player Experience Goals:</strong>
-I want them to be frustrated with the rng but aslo to enjoy the overall game.
+What experience do you want players to have when playing your game?
 </li>
 
 <li><strong>Gameplay:</strong>
-The gameplay is essentially a stick figure moving back and forth. The player can use the left and right arrow keys as inputs.
+A paragraph describing the actions the player can perform, the system dynamics, and the core mechanic. Include a concise explanation of the prototype’s inputs and their expected effects (how to play). You can also describe game play that is not in the prototype. You may include mock-up images for parts of the game not in the prototype.
 </li>
 
 <li><strong>Prototype Goal:</strong>
-Digital prototyping
+What game mechanic is this prototype evaluating?
 </li>
 
 <li><strong>Features:</strong>
-The game is pretty simple so far, i would say its set apart from other games due to the difficulty, it can be really easy or very difficult.
+What are the unique aspects of your game that set it apart?
 </li>
 
 <li><strong>Setting/Premise:</strong>
-The game is all abstract. It takes place on a alternate version of earth that sees lots of asteroid showers that just so happen to not destroy the earth somehow. 
+A paragraph about the world your game is set in and who the characters are. What makes the game world and its occupants unique and interesting? Do the tokens represent something? If the game has a backstory, put it here. If the game is abstract, then say so.
 </li>
 
 <li><strong>Story:</strong>
-My game doesn't have a complling story per-say, it's mainly about a guy who lives alone and like to dodge asteroids. Since is the one passtime he has he's pretty good at it. 
+If the game has a story (or you envision a story for the full game), summarize it in a paragraph. How will the dramatic tension interact with the gameplay tension?
 </li>
 
 <li><strong>Target Audience:</strong>
-Anyone that like dodging games and has a few minutes to spare
+A single sentence that describes the demographic you're trying to reach.
 </li>
 
 <li><strong>Play Time:</strong>
-Anywhere from a few seconds to a minute or two
+How long does your game take to play?
 </li>
 
 <li><strong>Strategies:</strong>
-The game is all rng so there's no real strategy
+What player strategies do you expect will be effective at playing this game?
 </li>
 
 <li><strong>Prototype Assets:</strong>
 Did you make your prototype assets from scratch? Did you borrow them? Cite your sources here.
 <ul>
-<li>All the images used were created by me</li>
+<li>Loading screen: self-made</li>
+<li>Puppy image: self-made</li>
+<li>Button: Phaser example <a href="https://phaser.io/examples/v2/buttons/action-on-click">Action On Click</a></li>
+<li>Bouncing Phaser image: <a href="https://phaser.io/download/logo">Phaser logo</a></li>
+<li>Music: "Poppers and Prosecco" Kevin MacLeod (<a href="incompetech.com">incompetech.com</a>). Licensed under <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons: By Attribution 3.0 License</a></li>
 </ul>
 </li>
 
 <li><strong>Prototype Closest Other Game:</strong>
-I borrowed bits and pieces from the different phaser examples. I had a hard time getting things to work without breaking. There was an example for a moving ufo which i got the movement from, i learned how to display text, create a group and collision. 
+Which other game most closely resembles your game? If you are borrowing code from a Phaser Example, you must say so here. If you borrow code from elsewhere, you must say so here.
+<ul>
+<li>The code for this example is adapted from the <a href="https://github.com/photonstorm/phaser/tree/v2.6.2/resources/Project%20Templates/Basic">Phaser Basic Project Template</a></li>
+</ul>
 </li>
 
 </ul>
