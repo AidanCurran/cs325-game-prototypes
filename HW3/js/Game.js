@@ -42,7 +42,6 @@ BasicGame.Game.prototype =
         this.player.animations.add('run-right', [4,5,6,7], 10, true);
         this.player.animations.add('run-up', [8,9,10,11], 10, true);
         this.player.animations.add('run-left', [12,13,14,15], 10, true);
-        
     },
 
     update: function () 
@@ -73,6 +72,10 @@ BasicGame.Game.prototype =
         	this.player.animations.stop();
         	this.player.frame = 0;
     	}
+    	if (this.player.getBounds().contains(704, 32)) 
+    	{
+    		this.state.start('EndGame');
+		}
     },
 
     quitGame: function (pointer) 
