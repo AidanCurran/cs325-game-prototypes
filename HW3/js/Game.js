@@ -49,22 +49,22 @@ BasicGame.Game.prototype =
     	this.game.physics.arcade.collide(this.player, this.fore);
 	    if (this.input.keyboard.isDown(Phaser.KeyCode.LEFT))
 	    {
-	        this.player.x -= 1;
+	        this.player.x -= 10;
 	        this.player.animations.play('run-left');
 	    }
 	    else if (this.input.keyboard.isDown(Phaser.KeyCode.RIGHT))
 	    {
-	        this.player.x += 1;
+	        this.player.x += 2;
     	    this.player.animations.play('run-right');
     	}
     	else if (this.input.keyboard.isDown(Phaser.KeyCode.UP))
 	    {
-	        this.player.y -= 1;
+	        this.player.y -= 2;
     	    this.player.animations.play('run-up');
     	}
     	else if (this.input.keyboard.isDown(Phaser.KeyCode.DOWN))
 	    {
-	        this.player.y += 1;
+	        this.player.y += 2;
     	    this.player.animations.play('run-down');
     	}
     	else
