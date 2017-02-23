@@ -71,7 +71,7 @@ BasicGame.Game.prototype =
     	else
     	{
         	this.player.animations.stop();
-        	this.player.frame = 4;
+        	this.player.frame = 0;
     	}
     },
 
