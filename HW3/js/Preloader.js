@@ -8,7 +8,7 @@ BasicGame.Preloader.prototype =
 	preload: function () 
 	{
 		this.load.image('titlePage', 'assets/MainMenu.png');
-		this.load.image('iDubbz', 'assets/idubbz.png');
+		this.load.image('iDubbz', 'assets/iDubbz.png');
 		this.load.image('playButton', 'assets/play_button.png');
 		this.load.image('endPage', 'assets/EndPage.png');
 		this.load.image('backButton', 'assets/BackButton.png');
