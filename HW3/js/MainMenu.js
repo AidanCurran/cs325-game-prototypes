@@ -1,42 +1,27 @@
-
-BasicGame.MainMenu = function (game) {
-
+BasicGame.MainMenu = function (game) 
+{
 	this.music = null;
 	this.playButton = null;
-
 };
 
-BasicGame.MainMenu.prototype = {
-
-	create: function () {
-
-		//	We've already preloaded our assets, so let's kick right into the Main Menu itself.
-		//	Here all we're doing is playing some music and adding a picture and button
-		//	Naturally I expect you to do something significantly better :)
-
+BasicGame.MainMenu.prototype = 
+{
+	create: function () 
+	{
 		this.music = this.add.audio('titleMusic');
 		this.music.play();
-
 		this.add.sprite(0, 0, 'titlePage');
-
-		this.playButton = this.add.button( 303, 400, 'playButton', this.startGame, this, 'over', 'out', 'down');
-
+		this.add.sprite(227, -20, 'iDubbz');
+		this.playButton = this.add.button( 70, 300, 'playButton', this.startGame, this);
 	},
 
-	update: function () {
-
-		//	Do some nice funky main menu effect here
-
+	update: function () 
+	{
 	},
 
-	startGame: function (pointer) {
-
-		//	Ok, the Play Button has been clicked or touched, so let's stop the music (otherwise it'll carry on playing)
+	startGame: function (pointer) 
+	{
 		this.music.stop();
-
-		//	And start the actual game
 		this.state.start('Game');
-
 	}
-
 };
