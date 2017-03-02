@@ -88,7 +88,7 @@
         {
          "columns":40,
          "firstgid":1,
-         "image":"..\/..\/..\/..\/..\/Users\/Aidan\/Documents\/School\/3.Junior\/Spring\/CS 325\/Tiled\/Tile Set\/gfx\/cave.png",
+         "image":"..\/..\/..\/..\/Tiled\/Tile Set\/gfx\/cave.png",
          "imageheight":400,
          "imagewidth":640,
          "margin":0,
@@ -146,7 +146,7 @@
         {
          "columns":12,
          "firstgid":1001,
-         "image":"..\/..\/..\/..\/..\/Users\/Aidan\/Documents\/School\/3.Junior\/Spring\/CS 325\/Tiled\/Tile Set\/gfx\/log.png",
+         "image":"..\/..\/..\/..\/Tiled\/Tile Set\/gfx\/log.png",
          "imageheight":128,
          "imagewidth":192,
          "margin":0,
@@ -160,7 +160,7 @@
         {
          "columns":33,
          "firstgid":1097,
-         "image":"..\/..\/..\/..\/..\/Users\/Aidan\/Documents\/School\/3.Junior\/Spring\/CS 325\/Tiled\/Tile Set\/gfx\/objects.png",
+         "image":"..\/..\/..\/..\/Tiled\/Tile Set\/gfx\/objects.png",
          "imageheight":320,
          "imagewidth":528,
          "margin":0,
