@@ -1,52 +1,63 @@
 "use strict";
 
-GameStates.makeGame = function( game, shared ) {
-    // Create your own variables.
-    var bouncy = null;
+GameStates.makeGame = function( game, shared ) 
+{
+    var bills = null;
+    var MAXBILLS = 150;
     
     function quitGame() 
     {
         game.state.start('MainMenu');
     }
     
+    function throwMoney()
+        {
+        	var bill = bills.getFirstDead();
+        	bill.revive();
+        	bill.checkWorldBounds = true;
+		    bill.outOfBoundsKill = true;
+        	bill.reset(0, Math.random() * 600);
+        	bill.body.velocity.x = 500;
+        	bill.body.velocity.y = 0;
+        }
+    
     return {
     
-        create: function () {
-    
-            //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
+        create: function () 
+        {
+            bills = game.add.group();
+    		for(var i = 0; i < MAXBILLS; i++) 
+    		{
+        		// Create each bullet and add it to the group.
+        		var bill = game.add.sprite(0, 0, 'bills');
+        		bills.add(bill);
+
+        		// Set its pivot point to the center of the bullet
+		        bill.anchor.setTo(0.5, 0.5);
+
+    		    // Enable physics on the bullet
+		        game.physics.enable(bill, Phaser.Physics.ARCADE);
+
+    		    // Set its initial state to "dead".
+    		    bill.kill();
+    		}
             
-            // Create a sprite at the center of the screen using the 'logo' image.
-            bouncy = game.add.sprite( game.world.centerX, game.world.centerY, 'bills' );
-            // Anchor the sprite at its center, as opposed to its top-left corner.
-            // so it will be truly centered.
-            bouncy.anchor.setTo( 0.5, 0.5 );
-            
-            // Turn on the arcade physics engine for this sprite.
-            game.physics.enable( bouncy, Phaser.Physics.ARCADE );
-            // Make it bounce off of the world bounds.
-            bouncy.body.collideWorldBounds = true;
-            
-            // Add some text using a CSS style.
-            // Center it in X, and position its top 15 pixels from the top of the world.
-            //var style = { font: "25px Verdana", fill: "#9999ff", align: "center" };
-            //var text = game.add.text( game.world.centerX, 15, "Build something amazing.", style );
-            //text.anchor.setTo( 0.5, 0.0 );
-            
-            // When you click on the sprite, you go back to the MainMenu.
-            bouncy.inputEnabled = true;
-            bouncy.events.onInputDown.add( function() { quitGame(); }, this );
+           //  bills.anchor.setTo( 0.5, 0.5 );
+//             game.physics.enable( bills, Phaser.Physics.ARCADE );
+//             bills.body.collideWorldBounds = true;
+//             bills.inputEnabled = true;
+//             bills.events.onInputDown.add( function() { quitGame(); }, this );
         },
     
-        update: function () {
+    	
     
-            //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
-            
-            // Accelerate the 'logo' sprite towards the cursor,
-            // accelerating at 500 pixels/second and moving no faster than 500 pixels/second
-            // in X or Y.
-            // This function returns the rotation angle that makes it visually match its
-            // new trajectory.
-            bouncy.rotation = game.physics.arcade.accelerateToPointer( bouncy, game.input.activePointer, 500, 500, 500 );
+        update: function () 
+        {
+        	//if (game.input.activePointer.isDown) {
+        		throwMoney();
+    		//}
         }
+        
+        
     };
 };
