@@ -3,7 +3,8 @@
 GameStates.makeGame = function( game, shared ) 
 {
     var bills = null;
-    var MAXBILLS = 150;
+    var MAXBILLS = 100;
+    var counter = 0;
     
     function quitGame() 
     {
@@ -11,15 +12,21 @@ GameStates.makeGame = function( game, shared )
     }
     
     function throwMoney()
-        {
-        	var bill = bills.getFirstDead();
-        	bill.revive();
-        	bill.checkWorldBounds = true;
-		    bill.outOfBoundsKill = true;
-        	bill.reset(0, Math.random() * 600);
-        	bill.body.velocity.x = 500;
-        	bill.body.velocity.y = 0;
-        }
+    {
+        var bill = bills.getFirstDead();
+        bill.revive();
+        bill.checkWorldBounds = true;
+        bill.outOfBoundsKill = true;
+        bill.reset(0, 100 + Math.random() * 500);
+        bill.body.velocity.x = 200;
+        bill.inputEnabled = true;
+        bill.input.useHandCursor = true;
+    	bill.events.onInputDown.add(collectMoney, this );
+    }
+    function collectMoney(bill, pointer)
+    {
+        bill.kill();
+    }
     
     return {
     
@@ -28,36 +35,25 @@ GameStates.makeGame = function( game, shared )
             bills = game.add.group();
     		for(var i = 0; i < MAXBILLS; i++) 
     		{
-        		// Create each bullet and add it to the group.
         		var bill = game.add.sprite(0, 0, 'bills');
         		bills.add(bill);
-
-        		// Set its pivot point to the center of the bullet
 		        bill.anchor.setTo(0.5, 0.5);
-
-    		    // Enable physics on the bullet
 		        game.physics.enable(bill, Phaser.Physics.ARCADE);
-
-    		    // Set its initial state to "dead".
     		    bill.kill();
     		}
-            
-           //  bills.anchor.setTo( 0.5, 0.5 );
-//             game.physics.enable( bills, Phaser.Physics.ARCADE );
-//             bills.body.collideWorldBounds = true;
-//             bills.inputEnabled = true;
-//             bills.events.onInputDown.add( function() { quitGame(); }, this );
         },
-    
-    	
-    
+
         update: function () 
         {
-        	//if (game.input.activePointer.isDown) {
+        	counter++;
+        	if (counter < 6 && counter > 4)
+        	{
         		throwMoney();
-    		//}
+    		}
+    		if(counter > 10)
+    		{
+    			counter = 0;
+    		}
         }
-        
-        
     };
 };

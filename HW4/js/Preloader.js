@@ -12,7 +12,7 @@ GameStates.makePreloader = function( game )
             game.load.setPreloadSprite(preloadBar);
             game.load.image('titlePage', 'assets/mainMenu.png');
 			game.load.image('snob', 'assets/snob.png');
-			game.load.image('bills', 'assets/dollarBill.png');
+			game.load.image('bills', 'assets/dollarbillicon.png');
 			game.load.image('playButton', 'assets/playButton.png');
 			game.load.image('endPage', 'assets/EndPage.png');
 			game.load.image('backButton', 'assets/BackButton.png');
