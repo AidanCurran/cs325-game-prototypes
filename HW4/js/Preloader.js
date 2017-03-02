@@ -16,11 +16,8 @@ GameStates.makePreloader = function( game )
 			game.load.image('playButton', 'assets/playButton.png');
 			game.load.image('endPage', 'assets/EndPage.png');
 			game.load.image('backButton', 'assets/BackButton.png');
+			game.load.audio('coin', ['assets/sm64coin.mp3']);
 			game.load.audio('titleMusic', ['assets/MoneyMoneyMoney.mp3']);
-        	// game.load.tilemap('map', 'assets/Map.json', null, Phaser.Tilemap.TILED_JSON);
-//         	game.load.spritesheet( 'character', 'assets/character.png', 16, 32);
-//         	game.load.image('cave', 'assets/cave.png');
-//         	game.load.image('objects', 'assets/objects.png');
         },
     
         create: function () 
