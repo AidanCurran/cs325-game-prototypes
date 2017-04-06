@@ -29,13 +29,11 @@ GameStates.makeGame = function( game, shared )
     
     function rollDice() 
     {
-    	var roll = 1;//game.rnd.integerInRange(1, 6);
+    	var roll = game.rnd.integerInRange(1, 6);
         diceNum.text = roll;
         text.kill();
 		var currentPosition = playerPosition;
 		playerPosition += roll;
-		//var tween = game.add.tween(player);
-		
         for(var i=currentPosition; i<=currentPosition+roll; i++)
 		{
 			if(grids[i])
