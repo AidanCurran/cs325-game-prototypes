@@ -10,8 +10,8 @@ GameStates.makePreloader = function( game )
             background = game.add.sprite(-100, 100, 'preloaderBackground');
             preloadBar = game.add.sprite(300, 400, 'preloaderBar');
             game.load.setPreloadSprite(preloadBar);
-            game.load.image('titlePage', 'assets/mainMenu.png');
-            game.load.image('diceSpot', 'assets/DiceSpot.png');
+            game.load.image('titlePage', 'assets/MainMenu.png');
+            game.load.image('diceSpot', 'assets/diceSpot.png');
  			game.load.image('redCar', 'assets/redcar.png');
  			game.load.image('greenCar', 'assets/greenCar.png');
  			game.load.image('yellowCar', 'assets/yellowCar.png');
