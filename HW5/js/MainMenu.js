@@ -15,7 +15,6 @@ GameStates.makeMainMenu = function( game, shared )
         	music = this.add.audio('titleMusic');
 			music.play();
 			game.add.sprite(0, 0, 'titlePage');
-			//game.add.sprite(760, 0, 'snob');
 			playButton = this.add.button( 300, 650, 'playButton', startGame, this);
         },
         update: function () 
