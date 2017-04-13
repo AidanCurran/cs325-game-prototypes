@@ -6,12 +6,11 @@ GameStates.makeGame = function( game, shared )
     var map = null;
     var fore = null;
     var background = null;
-    var dice = null;
+    var dices = null;
     var diceNum = null;
     var text = null;
     var player = null;
     var spaces = null;
-    
     var grids = [[50,750],[100,750],[150,750],[200,750],[250,750],[300,750],[350,750],[400,750],
     			 [450,750],[500,750],[550,750],[600,750],[650,750],[720,750],
     			 [720,680],[720,630],[720,580],[720,525],										//17
@@ -26,8 +25,6 @@ GameStates.makeGame = function( game, shared )
 				 [500,100],[500,150],[500,210],													//58
 				 [460,210],[410,210],[360,210],[310,210],[260,210],[210,210],[160,210],[110,210],//66
 				 [110,170],[110,110],[110,60],[110,10]];
-    
-    var playerPosition = 0;
     var turn = 0;
     var playerRed = null;
     var playerRedPosition = 0;
@@ -37,13 +34,23 @@ GameStates.makeGame = function( game, shared )
     var playerYellowPosition = 0;
     var playerBlue = null;
     var playerBluePosition = 0;
-    var RedSkip = false;
-    var GreenSkip = false;
-    var YellowSkip = false;
-    var BlueSkip = false;
+    var turnImage = null;
+    var turnDuring = false;
     
     function quitGame() 
     {
+    	playerRed.x = 50;
+		playerRed.y = 750;
+    	playerRedPosition = 0;
+    	playerGreen.x = 50;
+		playerGreen.y = 750;
+    	playerGreenPosition = 0;
+    	playerYellow.x = 50;
+		playerYellow.y = 750;
+    	playerYellowPosition = 0;
+    	playerBlue.x = 50;
+		playerBlue.y = 750;
+    	playerBluePosition = 0;
         game.state.start('MainMenu');
     }
     
@@ -51,6 +58,7 @@ GameStates.makeGame = function( game, shared )
     {
     	// turn: 0 is red, 1 is green, 2 is yellow, 3 is blue
     	var playersTurn = "";
+    	//turnDuring = true;
     	switch(turn)
     	{
     		case 0:
@@ -98,7 +106,7 @@ GameStates.makeGame = function( game, shared )
 			p.angle = -90;
     }
     
-    function checkSpace(position, p, skip)
+    function checkSpace(position, p)
     {
     		if(position == 1)
 			{
@@ -118,10 +126,6 @@ GameStates.makeGame = function( game, shared )
 				p.y = 750;
 				position = position - 3;
 			}
-			else if(position == 13)	// skip turn
-			{
-				skip = true;
-			}
 			else if(position == 17)	// -5
 			{
 				p.x = 650;
@@ -133,10 +137,6 @@ GameStates.makeGame = function( game, shared )
 				p.x = 650;
 				p.y = 525;
 				position = position + 2;
-			}
-			else if(position == 22)	// skip turn
-			{
-				skip = true;
 			}
 			else if(position == 24)	// +2
 			{
@@ -150,10 +150,6 @@ GameStates.makeGame = function( game, shared )
 				p.y = 600;
 				position = position - 4;
 			}
-			else if(position == 31)	// skip turn
-			{
-				skip = true;
-			}
 			else if(position == 33)	// -1
 			{
 				p.x = 85;
@@ -166,10 +162,6 @@ GameStates.makeGame = function( game, shared )
 				p.y = 370;
 				position = position + 2;
 			}
-			else if(position == 39)	// skip turn
-			{
-				skip = true;
-			}
 			else if(position == 44)	// -3
 			{//500,370
 				p.x = 500;
@@ -181,10 +173,6 @@ GameStates.makeGame = function( game, shared )
 				p.x = 550;
 				p.y = 50;
 				position = position + 5;
-			}
-			else if(position == 55)	// skip turn
-			{
-				skip = true;
 			}
 			else if(position == 58)	// -7
 			{
@@ -208,8 +196,29 @@ GameStates.makeGame = function( game, shared )
     
     function rollDice(playersTurn) 
     {
-    	var roll = game.rnd.integerInRange(1, 6);
-        diceNum.text = roll;
+    	var roll = 6;//game.rnd.integerInRange(1, 6);
+    	switch(roll)
+    	{
+    		case 1:
+    			dices.frame = 0;
+    			break;
+    		case 2:
+    			dices.frame = 1;
+    			break;
+    		case 3:
+    			dices.frame = 2;
+    			break;
+    		case 4:
+    			dices.frame = 3;
+    			break;
+    		case 5:
+    			dices.frame = 4;
+    			break;
+    		case 6:
+    			dices.frame = 5;
+    			break;
+    	}
+        // diceNum.text = roll;
         text.kill();
         var p = null;
         var currPos = 0;
@@ -230,7 +239,7 @@ GameStates.makeGame = function( game, shared )
 				}
 			}
 			checkRotation(playerRedPosition, p);
-			checkSpace(playerRedPosition, p, RedSkip);
+			checkSpace(playerRedPosition, p);
 			checkRotation(playerRedPosition, p);
     	}
     	// GREEN	-----------------------------------------
@@ -248,7 +257,7 @@ GameStates.makeGame = function( game, shared )
 				}
 			}
 			checkRotation(playerGreenPosition, p);
-			checkSpace(playerGreenPosition, p, GreenSkip);
+			checkSpace(playerGreenPosition, p);
 			checkRotation(playerGreenPosition, p);
 			
     	}
@@ -267,7 +276,7 @@ GameStates.makeGame = function( game, shared )
 				}
 			}
 			checkRotation(playerYellowPosition, p);
-			checkSpace(playerYellowPosition, p, YellowSkip);
+			checkSpace(playerYellowPosition, p);
 			checkRotation(playerYellowPosition, p);
     	}
     	// BLUE	-----------------------------------------
@@ -285,10 +294,17 @@ GameStates.makeGame = function( game, shared )
 				}
 			}
 			checkRotation(playerBluePosition, p);
-			checkSpace(playerBluePosition, p, BlueSkip);
+			checkSpace(playerBluePosition, p);
 			checkRotation(playerBluePosition, p);
     	}
+    	turnDuring = false;
     }
+    
+    function killSelf()
+    {
+        turnImage.kill();
+    }
+    
     
     return {
         create: function () 
@@ -301,16 +317,16 @@ GameStates.makeGame = function( game, shared )
         	background = map.createLayer('Background');
         	background.resizeWorld();
         	fore = map.createLayer('Road');
-        	diceNum = game.add.text(530, 635, '0', { fontSize: '64px', fill: '#000000' });
-        	game.add.text(480, 575, 'Dice', { fontSize: '64px', fill: '#000000' });
-        	text = game.add.text(160, 650, 'Click box to roll', { fontSize: '32px', fill: '#000000' });
+        	//diceNum = game.add.text(530, 635, '0', { fontSize: '64px', fill: '#000000' });
+        	game.add.text(430, 610, 'Dice', { fontSize: '48px', fill: '#000000' });
+        	text = game.add.text(160, 650, 'Click die to roll', { fontSize: '32px', fill: '#000000' });
         	
         	spaces = game.add.sprite(0,0, 'spaces');
         	
-        	dice = game.add.sprite(410, 575, 'diceSpot');
-        	dice.inputEnabled = true;
-        	dice.input.useHandCursor = true;
-    		dice.events.onInputDown.add(turns, this );
+        	dices = game.add.sprite(550, 590, 'dices');
+        	dices.inputEnabled = true;
+        	dices.input.useHandCursor = true;
+    		dices.events.onInputDown.add(turns, this );
 	
 			//player 4
 			playerBlue = game.add.sprite(grids[playerBluePosition][0],grids[playerBluePosition][1], 'blueCar');
@@ -341,32 +357,43 @@ GameStates.makeGame = function( game, shared )
 // 			playerRed.enableBody = true;
 			turn = 0;
         },
+        
         update: function () 
         {
-        	if(playerRedPosition > 70)
-        	{
-        		quitGame();
-        	}
-        	if(playerGreenPosition > 70)
-        	{
-        		quitGame();
-        	}
-        	if(playerBluePosition > 70)
-        	{
-        		quitGame();
-        	}
-        	if(playerYellowPosition > 70)
-        	{
-        		quitGame();
-        	}
         	checkRotation(playerRedPosition, playerRed);
         	checkRotation(playerGreenPosition, playerGreen);
         	checkRotation(playerYellowPosition, playerYellow);
         	checkRotation(playerBluePosition, playerBlue);
-        	checkSpace(playerBluePosition, playerBlue, BlueSkip);
-        	checkSpace(playerYellowPosition, playerYellow, YellowSkip);
-        	checkSpace(playerGreenPosition, playerGreen, GreenSkip);
-        	checkSpace(playerRedPosition, playerRed, RedSkip);
+        	checkSpace(playerBluePosition, playerBlue);
+        	checkSpace(playerYellowPosition, playerYellow);
+        	checkSpace(playerGreenPosition, playerGreen);
+        	checkSpace(playerRedPosition, playerRed);
+        	if(playerGreenPosition >= 70 || playerRedPosition >= 70 || playerYellowPosition >= 70 || playerBluePosition >= 70)
+			{	
+				game.add.sprite(0, 0, 'gameOver');
+				game.time.events.add(10000, quitGame);
+				quitGame();
+			}
+			if (turnDuring == false)
+			{
+				switch(turn)
+    			{
+    				case 0:
+    					turnImage = game.add.sprite(200, 300, 'redTurn');
+    					break;
+    				case 1:
+    					turnImage = game.add.sprite(200, 300, 'greenTurn');
+    					break;
+    				case 2:
+    					turnImage = game.add.sprite(200, 300, 'yellowTurn');
+    					break;
+    				case 3:
+    					turnImage = game.add.sprite(200, 300, 'blueTurn');
+    					break;
+    			}
+    			game.time.events.add(600, killSelf, turnImage);
+    			turnDuring = true;
+    		}
         },
     };
 };
