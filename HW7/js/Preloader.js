@@ -22,7 +22,7 @@ GameStates.makePreloader = function( game )
  			game.load.image('redTurn', 'assets/rt.png');
  			game.load.image('greenTurn', 'assets/gt.png');
  			game.load.image('yellowTurn', 'assets/yt.png');
- 			game.load.image('blueTurn', 'assets/bt.png');
+ 			game.load.image('blueTurn', 'assets/blueTurn.png');
  			
  			game.load.spritesheet( 'dices', 'assets/ds.png', 100, 100);
  			game.load.image('gameOver','assets/gameOver.png',0,0);
