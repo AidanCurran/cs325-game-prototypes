@@ -343,6 +343,22 @@ GameStates.makeGame = function( game, shared )
         },
         update: function () 
         {
+        	if(playerRedPosition > 70)
+        	{
+        		quitGame();
+        	}
+        	if(playerGreenPosition > 70)
+        	{
+        		quitGame();
+        	}
+        	if(playerBluePosition > 70)
+        	{
+        		quitGame();
+        	}
+        	if(playerYellowPosition > 70)
+        	{
+        		quitGame();
+        	}
         	checkRotation(playerRedPosition, playerRed);
         	checkRotation(playerGreenPosition, playerGreen);
         	checkRotation(playerYellowPosition, playerYellow);
