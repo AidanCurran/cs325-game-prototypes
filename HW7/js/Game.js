@@ -59,7 +59,6 @@ GameStates.makeGame = function( game, shared )
     {
     	// turn: 0 is red, 1 is green, 2 is yellow, 3 is blue
     	var playersTurn = "";
-    	//turnDuring = true;
     	switch(turn)
     	{
     		case 0:
@@ -197,7 +196,7 @@ GameStates.makeGame = function( game, shared )
     
     function rollDice(playersTurn) 
     {
-    	var roll = 6;//game.rnd.integerInRange(1, 6);
+    	var roll = game.rnd.integerInRange(1, 6);
     	switch(roll)
     	{
     		case 1:
@@ -290,7 +289,6 @@ GameStates.makeGame = function( game, shared )
 			{
 				if(grids[i])
 				{
-					
 					p.x = grids[i][0];
 					p.y = grids[i][1];
 				}
@@ -311,52 +309,36 @@ GameStates.makeGame = function( game, shared )
     return {
         create: function () 
         {
-//         	game.physics.startSystem(Phaser.Physics.ARCADE);
         	music = new Phaser.Sound(game,'backgroundMusic',1,true);	
-//         	music.play();
+        	music.play();
     		map = game.add.tilemap('Road', 32, 32, 64, 32);
         	map.addTilesetImage('spritesheet','spritesheet');
         	background = map.createLayer('Background');
         	background.resizeWorld();
         	fore = map.createLayer('Road');
-        	//diceNum = game.add.text(530, 635, '0', { fontSize: '64px', fill: '#000000' });
         	game.add.text(430, 610, 'Dice', { fontSize: '48px', fill: '#000000' });
         	text = game.add.text(160, 650, 'Click die to roll', { fontSize: '32px', fill: '#000000' });
-        	
         	spaces = game.add.sprite(0,0, 'spaces');
-        	
         	dices = game.add.sprite(550, 590, 'dices');
         	dices.inputEnabled = true;
         	dices.input.useHandCursor = true;
     		dices.events.onInputDown.add(turns, this );
-	
 			//player 4
 			playerBlue = game.add.sprite(grids[playerBluePosition][0],grids[playerBluePosition][1], 'blueCar');
 			playerBlue.anchor.setTo(0.5,0.5);
 			playerBlue.angle = 0;
-// 			game.physics.arcade.enable(playerBlue);
-// 			playerBlue.enableBody = true;
-			
 			//player 3
 			playerYellow = game.add.sprite(grids[playerYellowPosition][0],grids[playerYellowPosition][1], 'yellowCar');
 			playerYellow.anchor.setTo(0.5,0.5);
 			playerYellow.angle = 0;
-// 			game.physics.arcade.enable(playerYellow);
-// 			playerYellow.enableBody = true;
-			
 			//player 2
 			playerGreen = game.add.sprite(grids[playerGreenPosition][0],grids[playerGreenPosition][1], 'greenCar');
 			playerGreen.anchor.setTo(0.5,0.5);
 			playerGreen.angle = 0;
-// 			game.physics.arcade.enable(playerGreen);
-// 			playerGreen.enableBody = true;
-			
 			//player 1
 			playerRed = game.add.sprite(grids[playerRedPosition][0],grids[playerRedPosition][1], 'redCar');
 			playerRed.anchor.setTo(0.5,0.5);
 			playerRed.angle = 0;
-// 			game.physics.arcade.enable(playerRed);
-// 			playerRed.enableBody = true;
 			turn = 0;
         },
         
@@ -373,7 +355,7 @@ GameStates.makeGame = function( game, shared )
         	if(playerGreenPosition >= 70 || playerRedPosition >= 70 || playerYellowPosition >= 70 || playerBluePosition >= 70)
 			{	
 				game.add.sprite(0, 0, 'gameOver');
-				game.time.events.add(5000, quitGame,this);
+				game.time.events.add(5000, quitGame, this);
 			}
 			if (turnDuring == false)
 			{
