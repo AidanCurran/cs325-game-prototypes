@@ -51,6 +51,7 @@ GameStates.makeGame = function( game, shared )
     	playerBlue.x = 50;
 		playerBlue.y = 750;
     	playerBluePosition = 0;
+    	game.add.sprite(0, 0, 'gameOver');
         game.state.start('MainMenu');
     }
     
