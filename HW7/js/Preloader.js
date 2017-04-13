@@ -21,6 +21,7 @@ GameStates.makePreloader = function( game )
  			game.load.audio('titleMusic', ['assets/carNoise.mp3']);
 			game.load.image('spritesheet', 'assets/spritesheet.png');
 			game.load.tilemap('Road', 'assets/roadMap.json', null, Phaser.Tilemap.TILED_JSON);
+			game.load.image('spaces', 'assets/space.png');
         },
     
         create: function () 

@@ -10,6 +10,7 @@ GameStates.makeGame = function( game, shared )
     var diceNum = null;
     var text = null;
     var player = null;
+    var spaces = null;
     
     var grids = [[50,750],[100,750],[150,750],[200,750],[250,750],[300,750],[350,750],[400,750],
     			 [450,750],[500,750],[550,750],[600,750],[650,750],[720,750],
@@ -28,14 +29,18 @@ GameStates.makeGame = function( game, shared )
     
     var playerPosition = 0;
     var turn = 0;
-    var playerRed = 0;
+    var playerRed = null;
     var playerRedPosition = 0;
-    var playerGreen = 0;
+    var playerGreen = null;
     var playerGreenPosition = 0;
-    var playerYellow = 0;
+    var playerYellow = null;
     var playerYellowPosition = 0;
-    var playerBlue = 0;
+    var playerBlue = null;
     var playerBluePosition = 0;
+    var RedSkip = false;
+    var GreenSkip = false;
+    var YellowSkip = false;
+    var BlueSkip = false;
     
     function quitGame() 
     {
@@ -67,86 +72,222 @@ GameStates.makeGame = function( game, shared )
     	rollDice(playersTurn);
     }
     
+    function checkRotation(position, p)
+    {
+    	if(position >= 13 && position < 17)
+			p.angle = -90;
+		else if(position >= 17 && position < 23)
+			p.angle = 180;
+		else if(position == 23)
+			p.angle = 90;
+		else if(position >= 24 && position < 29)
+			p.angle = 180;
+		else if(position >= 29 && position < 33)
+			p.angle = -90;
+		else if(position >= 33 && position < 45)
+			p.angle = 0;
+		else if(position >= 45 && position < 51)
+			p.angle = -90;
+		else if(position >= 51 && position < 55)
+			p.angle = 180;
+		else if(position >= 55 && position < 58)
+			p.angle = 90;
+		else if(position >= 58 && position < 66)
+			p.angle = 180;
+		else if(position >= 66)
+			p.angle = -90;
+    }
+    
+    function checkSpace(position, p, skip)
+    {
+    		if(position == 1)
+			{
+				p.x = 50;
+				p.y = 750;
+				position = 0;
+			}
+			else if(position == 5)
+			{
+				p.x = 400;
+				p.y = 750;
+				position = position + 2;
+			}
+			else if(position == 12)	// -3
+			{
+				p.x = 500;
+				p.y = 750;
+				position = position - 3;
+			}
+			else if(position == 13)	// skip turn
+			{
+				skip = true;
+			}
+			else if(position == 17)	// -5
+			{
+				p.x = 650;
+				p.y = 750;
+				position = position - 5;
+			}
+			else if(position == 18)	// +2
+			{
+				p.x = 650;
+				p.y = 525;
+				position = position + 2;
+			}
+			else if(position == 22)	// skip turn
+			{
+				skip = true;
+			}
+			else if(position == 24)	// +2
+			{
+				p.x = 240;
+				p.y = 600;
+				position = position + 2;
+			}
+			else if(position == 29)	// -4
+			{
+				p.x = 300;
+				p.y = 600;
+				position = position - 4;
+			}
+			else if(position == 31)	// skip turn
+			{
+				skip = true;
+			}
+			else if(position == 33)	// -1
+			{
+				p.x = 85;
+				p.y = 420;
+				position = position - 1;
+			}
+			else if(position == 38)	// +2
+			{
+				p.x = 450;
+				p.y = 370;
+				position = position + 2;
+			}
+			else if(position == 39)	// skip turn
+			{
+				skip = true;
+			}
+			else if(position == 44)	// -3
+			{//500,370
+				p.x = 500;
+				p.y = 370;
+				position = position - 3;
+			}
+			else if(position == 49)	// +5
+			{
+				p.x = 550;
+				p.y = 50;
+				position = position + 5;
+			}
+			else if(position == 55)	// skip turn
+			{
+				skip = true;
+			}
+			else if(position == 58)	// -7
+			{
+				p.x = 720;
+				p.y = 50;
+				position = position - 7;
+			}
+			else if(position == 62)	// +5
+			{
+				p.x = 110;
+				p.y = 170;
+				position = position + 5;
+			}
+			else if(position == 66)	// -20
+			{
+				p.x = 720;
+				p.y = 300;
+				position = position - 20;
+			}
+    }
+    
     function rollDice(playersTurn) 
     {
-    	var roll = 3;//game.rnd.integerInRange(1, 6);
+    	var roll = game.rnd.integerInRange(1, 6);
         diceNum.text = roll;
         text.kill();
-        var gridX = [];
-		var gridY = [];
         var p = null;
         var currPos = 0;
         var currentPosition = 0;
+        
+        // RED	-----------------------------------------
     	if(playersTurn == "red")
     	{
     		p = playerRed;
     		currentPosition = playerRedPosition;
-    		playerRedPosition += roll;
-    		currPos = playerRedPosition;
+    		playerRedPosition = playerRedPosition + roll;
+    		for(var i=currentPosition; i<=currentPosition+roll; i++)
+			{
+				if(grids[i])
+				{
+					p.x = grids[i][0];
+					p.y = grids[i][1];
+				}
+			}
+			checkRotation(playerRedPosition, p);
+			checkSpace(playerRedPosition, p, RedSkip);
+			checkRotation(playerRedPosition, p);
     	}
+    	// GREEN	-----------------------------------------
     	else if(playersTurn == "green")
     	{
     		p = playerGreen;
     		currentPosition = playerGreenPosition;
-    		playerGreenPosition += roll;
-    		currPos = playerGreenPosition;
+    		playerGreenPosition = playerGreenPosition + roll;
+    		for(var i=currentPosition; i<=currentPosition+roll; i++)
+			{
+				if(grids[i])
+				{
+					p.x = grids[i][0];
+					p.y = grids[i][1];
+				}
+			}
+			checkRotation(playerGreenPosition, p);
+			checkSpace(playerGreenPosition, p, GreenSkip);
+			checkRotation(playerGreenPosition, p);
+			
     	}
+    	// YELLOW	-----------------------------------------
     	else if(playersTurn == "yellow")
     	{
     		p = playerYellow;
     		currentPosition = playerYellowPosition;
-    		playerYellowPosition += roll;
-    		currPos = playerYellowPosition;
+    		playerYellowPosition = playerYellowPosition + roll;
+    		for(var i=currentPosition; i<=currentPosition+roll; i++)
+			{
+				if(grids[i])
+				{
+					p.x = grids[i][0];
+					p.y = grids[i][1];
+				}
+			}
+			checkRotation(playerYellowPosition, p);
+			checkSpace(playerYellowPosition, p, YellowSkip);
+			checkRotation(playerYellowPosition, p);
     	}
+    	// BLUE	-----------------------------------------
     	else if(playersTurn == "blue")
     	{
     		p = playerBlue;
     		currentPosition = playerBluePosition;
-    		playerBluePosition += roll;
-    		currPos = playerBluePosition;
-    	}
-    	
-		//playerPosition += roll;
-		for(var i=currentPosition; i<=currentPosition+roll; i++)
-		{
-			if(grids[i])
+    		playerBluePosition = playerBluePosition + roll;
+    		for(var i=currentPosition; i<=currentPosition+roll; i++)
 			{
-				// var x = grids[i][0];
-// 				var y = grids[i][1];
-// 				p = game.physics.arcade.moveToXY(p,x,y, 100, 0);
-// 				p.body.velocity.x = 0;
-// 				p.body.velocity.y = 0;
-				p.x = grids[i][0];
-				p.y = grids[i][1];
-				//180 left, 0 right, 90 down, -90 up
-				if(currPos >= 13 && currPos < 17)
-					p.angle = -90;
-				else if(currPos >= 17 && currPos < 23)
-					p.angle = 180;
-				else if(currPos == 23)//> 20 && playerPosition < 21)
-					p.angle = 90;
-				else if(currPos >= 24 && currPos < 29)
-					p.angle = 180;
-				else if(currPos >= 29 && currPos < 33)
-					p.angle = -90;
-				else if(currPos >= 33 && currPos < 45)
-					p.angle = 0;
-				else if(currPos >= 45 && currPos < 51)
-					p.angle = -90;
-				else if(currPos >= 51 && currPos < 55)
-					p.angle = 180;
-				else if(currPos >= 55 && currPos < 58)
-					p.angle = 90;
-				else if(currPos >= 58 && currPos < 66)
-					p.angle = 180;
-				else if(currPos >= 66)
-					p.angle = -90;
+				if(grids[i])
+				{
+					p.x = grids[i][0];
+					p.y = grids[i][1];
+				}
 			}
-		}
-		
-			
-        
-		
+			checkRotation(playerBluePosition, p);
+			checkSpace(playerBluePosition, p, BlueSkip);
+			checkRotation(playerBluePosition, p);
+    	}
     }
     
     return {
@@ -163,6 +304,9 @@ GameStates.makeGame = function( game, shared )
         	diceNum = game.add.text(530, 635, '0', { fontSize: '64px', fill: '#000000' });
         	game.add.text(480, 575, 'Dice', { fontSize: '64px', fill: '#000000' });
         	text = game.add.text(160, 650, 'Click box to roll', { fontSize: '32px', fill: '#000000' });
+        	
+        	spaces = game.add.sprite(0,0, 'spaces');
+        	
         	dice = game.add.sprite(410, 575, 'diceSpot');
         	dice.inputEnabled = true;
         	dice.input.useHandCursor = true;
@@ -199,7 +343,14 @@ GameStates.makeGame = function( game, shared )
         },
         update: function () 
         {
-        	
+        	checkRotation(playerRedPosition, playerRed);
+        	checkRotation(playerGreenPosition, playerGreen);
+        	checkRotation(playerYellowPosition, playerYellow);
+        	checkRotation(playerBluePosition, playerBlue);
+        	checkSpace(playerBluePosition, playerBlue, BlueSkip);
+        	checkSpace(playerYellowPosition, playerYellow, YellowSkip);
+        	checkSpace(playerGreenPosition, playerGreen, GreenSkip);
+        	checkSpace(playerRedPosition, playerRed, RedSkip);
         },
     };
 };
