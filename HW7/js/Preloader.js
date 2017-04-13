@@ -11,11 +11,11 @@ GameStates.makePreloader = function( game )
             preloadBar = game.add.sprite(300, 400, 'preloaderBar');
             game.load.setPreloadSprite(preloadBar);
             game.load.image('titlePage', 'assets/MainMenu.png');
-            game.load.image('diceSpot', 'assets/diceSpot.png');
- 			game.load.image('redCar', 'assets/redcar.png');
- 			game.load.image('greenCar', 'assets/greenCar.png');
- 			game.load.image('yellowCar', 'assets/yellowCar.png');
- 			game.load.image('blueCar', 'assets/blueCar.png');
+            game.load.image('diceSpot', 'assets/diceSpot.png');    
+ 			game.load.image('redCar', 'assets/redCar.png');
+ 			game.load.image('greenCar', 'assets/greencar.png');
+ 			game.load.image('yellowCar', 'assets/yellowcar.png');
+ 			game.load.image('blueCar', 'assets/bluecar.png');
 			game.load.image('playButton', 'assets/playButton.png');
 			game.load.audio('backgroundMusic', ['assets/backgroundMusic.mp3']);
  			game.load.audio('titleMusic', ['assets/carNoise.mp3']);
