@@ -289,6 +289,7 @@ GameStates.makeGame = function( game, shared )
 			{
 				if(grids[i])
 				{
+					
 					p.x = grids[i][0];
 					p.y = grids[i][1];
 				}
@@ -371,8 +372,7 @@ GameStates.makeGame = function( game, shared )
         	if(playerGreenPosition >= 70 || playerRedPosition >= 70 || playerYellowPosition >= 70 || playerBluePosition >= 70)
 			{	
 				game.add.sprite(0, 0, 'gameOver');
-				game.time.events.add(10000, quitGame);
-				quitGame();
+				game.time.events.add(5000, quitGame,this);
 			}
 			if (turnDuring == false)
 			{
