@@ -14,7 +14,9 @@ GameStates.makePreloader = function( game )
             game.load.image('pointSpace', 'assets/ps.png');
             game.load.image('doneSpace', 'assets/doneSpace.png');
  			game.load.image('playButton', 'assets/theface.png');
-			game.load.image('background', 'assets/gameBoard.png');
+ 			game.load.image('backArrow', 'assets/backArrow.png');
+			game.load.image('background', 'assets/gameBoardv2.png');
+			game.load.image('comicsPage', 'assets/comicsPage.png');
 			game.load.audio('backgroundMusic', ['assets/kong.mp3']);
  			game.load.audio('titleMusic', ['assets/jeopardyMusic.mp3']);
  			game.load.audio('backgroundMusic2', ['assets/Hatoa.mp3']);
