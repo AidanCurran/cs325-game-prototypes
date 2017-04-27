@@ -310,7 +310,7 @@ GameStates.makeGame = function( game, shared )
         create: function () 
         {
         	music = new Phaser.Sound(game,'backgroundMusic',1,true);	
-        	music.volume = 0.1;
+        	music.volume = 0.01;
         	music.play();
         	
     		map = game.add.tilemap('Road', 32, 32, 64, 32);
