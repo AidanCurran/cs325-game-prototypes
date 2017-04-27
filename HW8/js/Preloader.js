@@ -28,8 +28,8 @@ GameStates.makePreloader = function( game )
  			game.load.image('gameOver','assets/gameOver.png',0,0);
  			
 			game.load.image('playButton', 'assets/playButton.png');
-			game.load.audio('backgroundMusic', ['assets/backgroundMusic.mp3']);
- 			game.load.audio('titleMusic', ['assets/carNoise.mp3']);
+			game.load.audio('backgroundMusic', ['assets/kong.mp3']);
+ 			game.load.audio('titleMusic', ['assets/jeopardyMusic.mp3']);
 			game.load.image('spritesheet', 'assets/spritesheet.png');
 			game.load.tilemap('Road', 'assets/roadMap.json', null, Phaser.Tilemap.TILED_JSON);
         },
