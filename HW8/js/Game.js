@@ -235,19 +235,19 @@ GameStates.makeGame = function( game, shared )
         	{
         		music = new Phaser.Sound(game,'backgroundMusic',1,true);	
         		music.volume -= 0.5;
-        		//music.play();
+        		music.play();
         	}
         	else if (m == 2)
         	{
         		music = new Phaser.Sound(game,'backgroundMusic2',1,true);	
         		music.volume -= 0.5;
-        		//music.play();
+        		music.play();
         	}
         	else
         	{
         		music = new Phaser.Sound(game,'backgroundMusic3',1,true);	
         		music.volume -= 0.5;
-        		//music.play();
+        		music.play();
         	}
         	
         	var background = game.add.sprite(0, 0, 'background');
