@@ -10,28 +10,15 @@ GameStates.makePreloader = function( game )
             background = game.add.sprite(-100, 100, 'preloaderBackground');
             preloadBar = game.add.sprite(300, 400, 'preloaderBar');
             game.load.setPreloadSprite(preloadBar);
-            game.load.image('titlePage', 'assets/MainMenu.png');
+            game.load.image('titlePage', 'assets/willFerrell.jpg');
             game.load.image('spaces', 'assets/Spaces.png');
             game.load.image('diceSpot', 'assets/diceSpot.png');
-                
- 			game.load.image('redCar', 'assets/r.png');
- 			game.load.image('greenCar', 'assets/g.png');
- 			game.load.image('yellowCar', 'assets/y.png');
- 			game.load.image('blueCar', 'assets/b.png');
- 			
- 			game.load.image('redTurn', 'assets/rt.png');
- 			game.load.image('greenTurn', 'assets/gt.png');
- 			game.load.image('yellowTurn', 'assets/yt.png');
- 			game.load.image('blueTurn', 'assets/blueTurn.png');
- 			
- 			game.load.spritesheet( 'dices', 'assets/ds.png', 100, 100);
- 			game.load.image('gameOver','assets/gameOver.png',0,0);
- 			
-			game.load.image('playButton', 'assets/playButton.png');
+            
+ 			game.load.image('playButton', 'assets/theface.png');
+			game.load.image('background', 'assets/background.png');
+			game.load.image('logo', 'assets/jeopardyLogo.jpg');
 			game.load.audio('backgroundMusic', ['assets/kong.mp3']);
  			game.load.audio('titleMusic', ['assets/jeopardyMusic.mp3']);
-			game.load.image('spritesheet', 'assets/spritesheet.png');
-			game.load.tilemap('Road', 'assets/roadMap.json', null, Phaser.Tilemap.TILED_JSON);
         },
     
         create: function () 
