@@ -1,7 +1,7 @@
 "use strict";
 window.onload = function() 
 {
-	var game = new Phaser.Game( 800, 800, Phaser.AUTO, 'game' );
+	var game = new Phaser.Game( 900, 800, Phaser.AUTO, 'game' );
 	var shared = {};
 	game.state.add( 'Boot', GameStates.makeBoot( game ) );
 	game.state.add( 'Preloader', GameStates.makePreloader( game ) );

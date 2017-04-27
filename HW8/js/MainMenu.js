@@ -9,13 +9,12 @@ GameStates.makeMainMenu = function( game, shared )
         game.state.start('Game');
     }
     return {
-    
         create: function () 
         {
         	music = this.add.audio('titleMusic');
 			//music.play();
 			game.add.sprite(0, 0, 'titlePage');
-			playButton = this.add.button( 0, 0, 'playButton', startGame, this);
+			playButton = this.add.button( 362, 40, 'playButton', startGame, this);
         },
         update: function () 
         {

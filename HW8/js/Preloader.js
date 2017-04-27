@@ -7,18 +7,18 @@ GameStates.makePreloader = function( game )
     return {
         preload: function () 
         {
-            background = game.add.sprite(-100, 100, 'preloaderBackground');
-            preloadBar = game.add.sprite(300, 400, 'preloaderBar');
+            background = game.add.sprite(0, 0, 'preloaderBackground');
+            preloadBar = game.add.sprite(200, 650, 'preloaderBar');
             game.load.setPreloadSprite(preloadBar);
-            game.load.image('titlePage', 'assets/willFerrell.jpg');
-            game.load.image('spaces', 'assets/Spaces.png');
-            game.load.image('diceSpot', 'assets/diceSpot.png');
-            
+            game.load.image('titlePage', 'assets/ferrellMenu.jpg');
+            game.load.image('pointSpace', 'assets/ps.png');
+            game.load.image('doneSpace', 'assets/doneSpace.png');
  			game.load.image('playButton', 'assets/theface.png');
-			game.load.image('background', 'assets/background.png');
-			game.load.image('logo', 'assets/jeopardyLogo.jpg');
+			game.load.image('background', 'assets/gameBoard.png');
 			game.load.audio('backgroundMusic', ['assets/kong.mp3']);
  			game.load.audio('titleMusic', ['assets/jeopardyMusic.mp3']);
+ 			game.load.audio('backgroundMusic2', ['assets/Hatoa.mp3']);
+ 			game.load.audio('backgroundMusic3', ['assets/BlackSands.mp3']);
         },
     
         create: function () 

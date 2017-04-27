@@ -21,8 +21,8 @@ GameStates.makeBoot = function( game )
         },
         preload: function () 
         {
-            game.load.image('preloaderBackground', 'assets/preload.jpg');
-            game.load.image('preloaderBar', 'assets/load.png');
+            game.load.image('preloaderBackground', 'assets/THEFACEE.png');
+            game.load.image('preloaderBar', 'assets/jeopardyLogo.jpg');
         },
         create: function () 
         {
