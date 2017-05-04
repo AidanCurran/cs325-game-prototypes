@@ -1007,7 +1007,7 @@ GameStates.makeGame = function( game, shared )
     		}, this );
     		turnImage = game.add.sprite(450, 400, 'beginning');
         	turnImage.anchor.setTo(0.5,0.5);
-        	game.time.events.add(1000, function(){turnImage.kill();}, turnImage);
+        	game.time.events.add(1500, function(){turnImage.kill();}, turnImage);
     		game.input.onDown.add(unpause, self);
         },
         
