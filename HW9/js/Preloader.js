@@ -26,6 +26,11 @@ GameStates.makePreloader = function( game )
 			game.load.image('hPage', 'assets/horrorPage.png');
 			game.load.image('sPage', 'assets/scifiPage.png');
 			
+			game.load.image('p1w', 'assets/p1winner.png');
+			game.load.image('p2w', 'assets/p2winner.png');
+			game.load.image('p3w', 'assets/p3winner.png');
+			game.load.image('p4w', 'assets/p4winner.png');
+			
 			// fantasy book questions
 			game.load.image('fq1', 'assets/f200q.png');
 			game.load.image('fq2', 'assets/f400q.png');

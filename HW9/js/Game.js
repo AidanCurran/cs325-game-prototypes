@@ -650,9 +650,10 @@ GameStates.makeGame = function( game, shared )
     	}       
 	}
     
-    function playMusic()
-    {
-    	var m = game.rnd.integerInRange(1, 3);
+    return {
+        create: function () 
+        {
+        	var m = game.rnd.integerInRange(1, 3);
         	if(m == 1)
         	{
         		music = new Phaser.Sound(game,'backgroundMusic',1,true);	
@@ -671,14 +672,6 @@ GameStates.makeGame = function( game, shared )
         		music.volume = 0.3;
         		music.play();
         	}
-    }
-    
-    return {
-        create: function () 
-        {
-        	playMusic();
-        	sad = new Phaser.Sound(game,'incorrect');	
-        	sad.volume -= 0.3;
         	
         	var background = game.add.sprite(0, 0, 'background');
         	p1Text = game.add.text(800, 240, '0', { fontSize: '40px', fill: '#ffffff' });
@@ -1008,6 +1001,27 @@ GameStates.makeGame = function( game, shared )
         	}
         	else if(gameDone == 20)
         	{
+        		var winner;
+        		if(p1Points > p2Points && p1Points > p3Points && p1Points > p4Points)
+    			{
+    				winner = game.add.sprite(450, 400, 'p1w');
+    				winner.anchor.setTo(0.5,0.5);
+    			}
+    			else if(p2Points > p1Points && p2Points > p3Points && p2Points > p4Points)
+    			{
+    				winner = game.add.sprite(450, 400, 'p2w');
+    				winner.anchor.setTo(0.5,0.5);
+    			}
+    			else if(p3Points > p1Points && p3Points > p2Points && p3Points > p4Points)
+    			{
+    				winner = game.add.sprite(450, 400, 'p3w');
+    				winner.anchor.setTo(0.5,0.5);
+    			}
+    			else
+    			{
+    				winner = game.add.sprite(450, 400, 'p4w');
+    				winner.anchor.setTo(0.5,0.5);
+    			}
         		game.time.events.add(2000, function(){gameDone += 1;}, gameDone);
         	}
         },   
