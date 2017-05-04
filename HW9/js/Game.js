@@ -156,8 +156,8 @@ GameStates.makeGame = function( game, shared )
     			}
     			else
     			{
-    				turnPaused();
     				playerLosePoints(100);
+    				turnPaused();
 					whoseTurn.kill();
 					whoseTurn = game.add.text(780, 30, 'Whose Turn Is\nIt Anyway: Player ' + playersTurn, { fontSize: '20px', fill: '#ffffff' });
         			whoseTurn.anchor.setTo( 0.5, 0.0 );
@@ -182,8 +182,8 @@ GameStates.makeGame = function( game, shared )
     			}
     			else
     			{
-    				turnPaused();
     				playerLosePoints(200);
+    				turnPaused();
 					whoseTurn.kill();
 					whoseTurn = game.add.text(780, 30, 'Whose Turn Is\nIt Anyway: Player ' + playersTurn, { fontSize: '20px', fill: '#ffffff' });
         			whoseTurn.anchor.setTo( 0.5, 0.0 );
@@ -208,8 +208,8 @@ GameStates.makeGame = function( game, shared )
     			}
     			else
     			{
-    				turnPaused();
     				playerLosePoints(300);
+					turnPaused();
 					whoseTurn.kill();
 					whoseTurn = game.add.text(780, 30, 'Whose Turn Is\nIt Anyway: Player ' + playersTurn, { fontSize: '20px', fill: '#ffffff' });
         			whoseTurn.anchor.setTo( 0.5, 0.0 );
@@ -234,8 +234,8 @@ GameStates.makeGame = function( game, shared )
     			}
     			else
     			{
-    				turnPaused();
     				playerLosePoints(400);
+    				turnPaused();
 					whoseTurn.kill();
 					whoseTurn = game.add.text(780, 30, 'Whose Turn Is\nIt Anyway: Player ' + playersTurn, { fontSize: '20px', fill: '#ffffff' });
         			whoseTurn.anchor.setTo( 0.5, 0.0 );
@@ -260,8 +260,8 @@ GameStates.makeGame = function( game, shared )
     			}
     			else
     			{
-    				turnPaused();
     				playerLosePoints(500);
+    				turnPaused();
 					whoseTurn.kill();
 					whoseTurn = game.add.text(780, 30, 'Whose Turn Is\nIt Anyway: Player ' + playersTurn, { fontSize: '20px', fill: '#ffffff' });
         			whoseTurn.anchor.setTo( 0.5, 0.0 );
@@ -287,8 +287,8 @@ GameStates.makeGame = function( game, shared )
     			}
     			else
     			{
-    				turnPaused();
     				playerLosePoints(100);
+    				turnPaused();
 					whoseTurn.kill();
 					whoseTurn = game.add.text(780, 30, 'Whose Turn Is\nIt Anyway: Player ' + playersTurn, { fontSize: '20px', fill: '#ffffff' });
         			whoseTurn.anchor.setTo( 0.5, 0.0 );
@@ -313,8 +313,8 @@ GameStates.makeGame = function( game, shared )
     			}
     			else
     			{
-    				turnPaused();
     				playerLosePoints(200);
+    				turnPaused();
 					whoseTurn.kill();
 					whoseTurn = game.add.text(780, 30, 'Whose Turn Is\nIt Anyway: Player ' + playersTurn, { fontSize: '20px', fill: '#ffffff' });
         			whoseTurn.anchor.setTo( 0.5, 0.0 );
@@ -339,8 +339,8 @@ GameStates.makeGame = function( game, shared )
     			}
     			else
     			{
-    				turnPaused();
     				playerLosePoints(300);
+    				turnPaused();
 					whoseTurn.kill();
 					whoseTurn = game.add.text(780, 30, 'Whose Turn Is\nIt Anyway: Player ' + playersTurn, { fontSize: '20px', fill: '#ffffff' });
         			whoseTurn.anchor.setTo( 0.5, 0.0 );
@@ -365,8 +365,8 @@ GameStates.makeGame = function( game, shared )
     			}
     			else
     			{
-    				turnPaused();
     				playerLosePoints(400);
+    				turnPaused();
 					whoseTurn.kill();
 					whoseTurn = game.add.text(780, 30, 'Whose Turn Is\nIt Anyway: Player ' + playersTurn, { fontSize: '20px', fill: '#ffffff' });
         			whoseTurn.anchor.setTo( 0.5, 0.0 );
@@ -391,8 +391,8 @@ GameStates.makeGame = function( game, shared )
     			}
     			else
     			{
-    				turnPaused();
     				playerLosePoints(500);
+    				turnPaused();
 					whoseTurn.kill();
 					whoseTurn = game.add.text(780, 30, 'Whose Turn Is\nIt Anyway: Player ' + playersTurn, { fontSize: '20px', fill: '#ffffff' });
         			whoseTurn.anchor.setTo( 0.5, 0.0 );
@@ -419,8 +419,8 @@ GameStates.makeGame = function( game, shared )
     			}
     			else
     			{
-    				turnPaused();
     				playerLosePoints(100);
+    				turnPaused();
 					whoseTurn.kill();
 					whoseTurn = game.add.text(780, 30, 'Whose Turn Is\nIt Anyway: Player ' + playersTurn, { fontSize: '20px', fill: '#ffffff' });
         			whoseTurn.anchor.setTo( 0.5, 0.0 );
@@ -445,8 +445,8 @@ GameStates.makeGame = function( game, shared )
     			}
     			else
     			{
-    				turnPaused();
     				playerLosePoints(200);
+    				turnPaused();
 					whoseTurn.kill();
 					whoseTurn = game.add.text(780, 30, 'Whose Turn Is\nIt Anyway: Player ' + playersTurn, { fontSize: '20px', fill: '#ffffff' });
         			whoseTurn.anchor.setTo( 0.5, 0.0 );
@@ -472,8 +472,8 @@ GameStates.makeGame = function( game, shared )
     			}
     			else
     			{
-    				turnPaused();
     				playerLosePoints(300);
+    				turnPaused();
 					whoseTurn.kill();
 					whoseTurn = game.add.text(780, 30, 'Whose Turn Is\nIt Anyway: Player ' + playersTurn, { fontSize: '20px', fill: '#ffffff' });
         			whoseTurn.anchor.setTo( 0.5, 0.0 );
@@ -498,8 +498,8 @@ GameStates.makeGame = function( game, shared )
     			}
     			else
     			{
-    				turnPaused();
     				playerLosePoints(400);
+    				turnPaused();
 					whoseTurn.kill();
 					whoseTurn = game.add.text(780, 30, 'Whose Turn Is\nIt Anyway: Player ' + playersTurn, { fontSize: '20px', fill: '#ffffff' });
         			whoseTurn.anchor.setTo( 0.5, 0.0 );
@@ -524,8 +524,8 @@ GameStates.makeGame = function( game, shared )
     			}
     			else
     			{
-    				turnPaused();
     				playerLosePoints(500);
+    				turnPaused();
 					whoseTurn.kill();
 					whoseTurn = game.add.text(780, 30, 'Whose Turn Is\nIt Anyway: Player ' + playersTurn, { fontSize: '20px', fill: '#ffffff' });
         			whoseTurn.anchor.setTo( 0.5, 0.0 );
@@ -554,8 +554,8 @@ GameStates.makeGame = function( game, shared )
 				}
 				else
 				{
-					turnPaused();
 					playerLosePoints(100);
+					turnPaused();
 					whoseTurn.kill();
 					whoseTurn = game.add.text(780, 30, 'Whose Turn Is\nIt Anyway: Player ' + playersTurn, { fontSize: '20px', fill: '#ffffff' });
         			whoseTurn.anchor.setTo( 0.5, 0.0 );
@@ -581,8 +581,8 @@ GameStates.makeGame = function( game, shared )
     			}
     			else
     			{
-    				turnPaused();
     				playerLosePoints(200);
+    				turnPaused();
 					whoseTurn.kill();
 					whoseTurn = game.add.text(780, 30, 'Whose Turn Is\nIt Anyway: Player ' + playersTurn, { fontSize: '20px', fill: '#ffffff' });
         			whoseTurn.anchor.setTo( 0.5, 0.0 );
@@ -607,8 +607,8 @@ GameStates.makeGame = function( game, shared )
     			}
     			else
     			{
-    				turnPaused();
     				playerLosePoints(300);
+    				turnPaused();
 					whoseTurn.kill();
 					whoseTurn = game.add.text(780, 30, 'Whose Turn Is\nIt Anyway: Player ' + playersTurn, { fontSize: '20px', fill: '#ffffff' });
         			whoseTurn.anchor.setTo( 0.5, 0.0 );
@@ -633,8 +633,8 @@ GameStates.makeGame = function( game, shared )
     			}
     			else
     			{
-    				turnPaused();
     				playerLosePoints(400);
+    				turnPaused();
 					whoseTurn.kill();
 					whoseTurn = game.add.text(780, 30, 'Whose Turn Is\nIt Anyway: Player ' + playersTurn, { fontSize: '20px', fill: '#ffffff' });
         			whoseTurn.anchor.setTo( 0.5, 0.0 );
@@ -659,8 +659,8 @@ GameStates.makeGame = function( game, shared )
     			}
     			else
     			{
-    				turnPaused();
     				playerLosePoints(500);
+    				turnPaused();
 					whoseTurn.kill();
 					whoseTurn = game.add.text(780, 30, 'Whose Turn Is\nIt Anyway: Player ' + playersTurn, { fontSize: '20px', fill: '#ffffff' });
         			whoseTurn.anchor.setTo( 0.5, 0.0 );
